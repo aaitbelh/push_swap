@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaitbelh <aaitbelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/02 10:04:40 by aaitbelh          #+#    #+#             */
-/*   Updated: 2022/02/05 20:01:59 by aaitbelh         ###   ########.fr       */
+/*   Created: 2021/11/03 09:11:59 by aaitbelh          #+#    #+#             */
+/*   Updated: 2021/11/14 13:47:35 by aaitbelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	ft_abs(int *num)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
-	int	sum;
-	int	a[2];
+	char	*str;
+	size_t	i;
+	size_t	j;
 
-	a[0] = num[0];
-	a[1] = num[1];
-	i = -1;
-	while (++i < 2)
-		if (a[i] < 0)
-			a[i] *= -1;
-	sum = a[0] + a[1];
-	return (sum);
-}
-
-void	ft_swap(int *a, int *b)
-{
-	int	c;
-
-	c = *a;
-	*a = *b;
-	*b = c;
+	i = 0;
+	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+		return (NULL);
+	while (s1[i])
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+	{
+		str[i] = s2[j];
+		i++;
+		j++;
+	}
+	str[i] = '\0';
+	return (str);
 }

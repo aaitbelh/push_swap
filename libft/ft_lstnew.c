@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaitbelh <aaitbelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/02 10:04:40 by aaitbelh          #+#    #+#             */
-/*   Updated: 2022/02/05 20:01:59 by aaitbelh         ###   ########.fr       */
+/*   Created: 2021/11/05 14:04:41 by aaitbelh          #+#    #+#             */
+/*   Updated: 2021/11/16 10:38:03 by aaitbelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	ft_abs(int *num)
+t_list	*ft_lstnew(void *x)
 {
-	int	i;
-	int	sum;
-	int	a[2];
+	t_list	*result;
 
-	a[0] = num[0];
-	a[1] = num[1];
-	i = -1;
-	while (++i < 2)
-		if (a[i] < 0)
-			a[i] *= -1;
-	sum = a[0] + a[1];
-	return (sum);
-}
-
-void	ft_swap(int *a, int *b)
-{
-	int	c;
-
-	c = *a;
-	*a = *b;
-	*b = c;
+	result = malloc(sizeof(t_list));
+	if (!result)
+		return (NULL);
+	result->content = x;
+	result->next = NULL;
+	return (result);
 }

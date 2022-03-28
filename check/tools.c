@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions.c                                        :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaitbelh <aaitbelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/02 10:04:40 by aaitbelh          #+#    #+#             */
-/*   Updated: 2022/02/05 20:01:59 by aaitbelh         ###   ########.fr       */
+/*   Created: 2022/02/06 16:06:46 by aaitbelh          #+#    #+#             */
+/*   Updated: 2022/02/06 18:41:28 by aaitbelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-int	ft_abs(int *num)
+void	ft_sort(int *tmp, int len)
 {
 	int	i;
-	int	sum;
-	int	a[2];
+	int	j;
 
-	a[0] = num[0];
-	a[1] = num[1];
-	i = -1;
-	while (++i < 2)
-		if (a[i] < 0)
-			a[i] *= -1;
-	sum = a[0] + a[1];
-	return (sum);
+	i = 0;
+	while (i < len)
+	{
+		j = i + 1;
+		while (j < len)
+		{
+			if (tmp[i] > tmp[j])
+				ft_swap(&tmp[i], &tmp[j]);
+			j++;
+		}
+		i++;
+	}
 }
 
 void	ft_swap(int *a, int *b)

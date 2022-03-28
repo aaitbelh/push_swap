@@ -1,51 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   more_functions.c                                   :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaitbelh <aaitbelh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/02 16:44:31 by aaitbelh          #+#    #+#             */
-/*   Updated: 2022/02/05 20:09:22 by aaitbelh         ###   ########.fr       */
+/*   Created: 2021/11/03 08:10:19 by aaitbelh          #+#    #+#             */
+/*   Updated: 2021/11/14 13:37:53 by aaitbelh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	ft_sort(int *tmp, int len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	i;
-	int	j;
+	char			*ptr;
+	unsigned int	i;
+	size_t			j;
 
+	j = 0;
 	i = 0;
-	while (i < len)
+	if (s == NULL)
+		return (NULL);
+	if (ft_strlen(s) < start)
+		len = 0;
+	if (ft_strlen(s) - start < len)
+		len = ft_strlen(s) - start;
+	ptr = (char *)malloc((sizeof(char) * len + 1));
+	if (!ptr)
+		return (NULL);
+	while (s[i])
 	{
-		j = i + 1;
-		while (j < len)
+		if (i >= start && j < len)
 		{
-			if (tmp[i] > tmp[j])
-				ft_swap(&tmp[i], &tmp[j]);
-			j++;
+			ptr[j++] = s[i];
 		}
 		i++;
 	}
-}
-
-int	big_element(t_stack *stack)
-{
-	int	tmp[2];
-	int	i;
-
-	i = 0;
-	tmp[0] = stack->b[0];
-	tmp[1] = 0;
-	while (++i < stack->lenb)
-	{
-		if (tmp[0] < stack->b[i])
-		{
-			tmp[0] = stack->b[i];
-			tmp[1] = i;
-		}
-	}
-	return (tmp[1]);
+	ptr[j] = '\0';
+	return (ptr);
 }

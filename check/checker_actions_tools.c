@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions_tools.c                                    :+:      :+:    :+:   */
+/*   checker_actions_tools.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aaitbelh <aaitbelh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: casper <casper@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/02 16:21:21 by aaitbelh          #+#    #+#             */
-/*   Updated: 2022/02/02 16:46:54 by aaitbelh         ###   ########.fr       */
+/*   Created: 2022/01/21 18:28:27 by casper            #+#    #+#             */
+/*   Updated: 2022/01/22 15:37:07 by casper           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void	make_a(t_stack *stack)
+void	make__a(t_stack *stack)
 {
 	int	i;
 	int	tmp2;
@@ -27,7 +27,7 @@ void	make_a(t_stack *stack)
 	}
 }
 
-void	fix_b(t_stack *stack)
+void	fix__b(t_stack *stack)
 {
 	int	i;
 
@@ -39,7 +39,7 @@ void	fix_b(t_stack *stack)
 	}
 }
 
-void	make_b(t_stack *stack)
+void	make__b(t_stack *stack)
 {
 	int	i;
 	int	tmp2;
@@ -54,7 +54,7 @@ void	make_b(t_stack *stack)
 	}
 }
 
-void	fix_a(t_stack *stack)
+void	fix__a(t_stack *stack)
 {
 	int	i;
 
